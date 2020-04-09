@@ -1,0 +1,366 @@
+:root {
+  --input-textColor: #1d2636;
+  --input-bgColor: #fff;
+  --input-borderColor: #ccc;
+  --input-font-size: 1.2em;
+  --slider-thumb-color: #1d2636;
+  --slider-track-bgColor: #d3d3d3;
+  --slider-input-bgColor: #fff;
+  --slider-input-textColor: #1d2636;
+  --input-field-hintColor: #1d2636;
+  --input-field-error-color: #da190b;
+  --slider-radio-font-size: 14px;
+  --slider-radio-padding: 6px 10px;
+  --slider-radio-bar-color: #38833c;
+  --slider-radio-bar-hover-color: #d3d3d3;
+  --slider-radion-active-color: #38833c;
+  --toggle-switch-active-color: #38833c;
+  --money-input-max-width: 100px;
+  --money-input-font-size: 16px;
+  --white: #fff;
+  --black: #333;
+}
+/* INPUTS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+input.app-input {
+  border-radius: 4px;
+  line-height: 30px;
+  color: var(--input-textColor);
+  background-color: var(--input-bgColor);
+  border: 1px solid var(--input-borderColor);
+  font-size: var(--input-font-size);
+  padding: 4px 8px;
+  width: 100%;
+  min-width: 100px;
+}
+.app-input-wrap.small {
+  width: 25%;
+}
+.app-input-wrap.medium {
+  width: 50%;
+}
+.app-input-wrap {
+  position: relative;
+}
+.app-input-wrap.icon-prepend input.app-input {
+  padding-left: 32px;
+}
+.app-input-wrap.icon-append input.app-input {
+  padding-right: 32px;
+}
+.app-input-wrap .app-input-prepend,
+.app-input-wrap .app-input-append {
+  position: absolute;
+  display: inline-block;
+  left: 2px;
+  top: 50%;
+  margin-top: -8px;
+  margin-left: 8px;
+}
+
+.app-input-wrap .app-input-prepend svg,
+.app-input-wrap .app-input-append svg {
+  width: 16px;
+  height: 16px;
+}
+
+.app-input-wrap .app-input-append {
+  left: 100%;
+  margin-left: -26px;
+}
+
+/* RANGE SLIDERS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: var(--slider-track-bgColor);
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+.slider:hover {
+  opacity: 1;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: var(--slider-thumb-color);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: var(--slider-thumb-color);
+  cursor: pointer;
+}
+
+.slider-input {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  min-width: 200px;
+}
+.slider-input.small {
+    max-width: 25%;
+}
+.slider-input.medium {
+    max-width: 50%;
+}
+.slider-input-range {
+  flex-grow: 1;
+  position: relative;
+}
+.slider-input-input input {
+  height: 30px;  
+  top: -2px;
+  width: 60px;
+  margin: 0 8px;
+  border-radius: 4px;
+  color: var(--slider-input-textColor);
+  background-color: var(--slider-input-bgColor);
+  border: 1px solid var(--slider-track-bgColor);
+  font-size: var(--input-font-size);
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.slider-input-range span.min-value,
+.slider-input-range span.max-value {
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    bottom: -10px;
+    font-size: .65em;
+    color: var(--slider-input-textColor);
+    opacity: 0.5;
+}
+.slider-input-range span.max-value {
+    left: 100%;
+    margin-left: -25px;
+}
+
+/* INPUT FIELD
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.input-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.input-field label {    
+    font-weight: var(--input-field-label-weight, 600);
+}
+.input-field-hint {
+    font-size: .85em;
+    color: var(--input-field-hint-color);
+    margin-bottom: 8px;
+}
+.input-field-error,
+.input-field.input-field-errors label
+ {
+    color: var(--input-field-error-color);
+}
+.input-field-error {
+    font-size: .9em;
+    margin-top: 12px;
+    font-weight: 600;
+}
+.input-field-error svg {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    fill: var(--input-field-error-color);
+    stroke: #fff;
+    stroke-opacity: 1;
+    stroke-width: 3;
+}
+
+/* TOGGLE SWITCH
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.toggle-switch-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #d3d3d3;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.toggle-switch-slider:before {
+    position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .toggle-switch-slider {
+    background-color: var(--toggle-switch-active-color);
+  }
+  
+  input:focus + .toggle-switch-slider {
+    box-shadow: 0 0 1px var(--toggle-switch-active-color);
+  }
+  
+  input:checked + .toggle-switch-slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  .toggle-switch-slider.round {
+      border-radius: 34px;
+  }
+  .toggle-switch-slider.round:before {
+      border-radius: 50%;
+  }
+
+/* SLIDER RADIO
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.slider-radio{position:relative;}
+.slider-radio input[type=radio]{display:none;}
+.slider-radio input[type=radio]:checked + label{position:relative !important;z-index:100 !important;}
+
+/* DEFAULT */
+.slider-radio {
+    display: inline-block;
+}
+
+.slider-radio label {
+    display: inline-block;
+    padding: var(--slider-radio-padding);
+    margin: 0 var(--slider-radio-spacing, 10px);
+    cursor: pointer;
+    opacity: 0.5;
+    font-size: var(--slider-radio-font-size);
+}
+
+.slider-radio label:hover {
+    color: var(--black, #000);
+}
+
+/* Indicator Styles */
+.slider-radio input[type=radio]:checked + label,
+.slider-radio .sliding-piece {
+    position: relative;
+    opacity: 1;
+    color: var(--slider-radion-active-color);
+    transition-timing-function: cubic-bezier(.74,.14,.38,.99);
+}
+
+.slider-radio input[type=radio]:checked + label:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--slider-radio-bar-color);
+}
+
+.slider-radio.base {
+    background-color: #eee;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.slider-radio.base input[type=radio]:checked + label,
+.slider-radio.base .sliding-piece {
+    background-color: #005D7A;
+    border: none;
+    color: white;
+}
+/* MONEY INPUT
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.money-input {
+    display: flex;
+    justify-content: flex-start;
+}
+.money-input input {
+    max-width: var(--money-input-max-width);
+    flex: 1 1 var(--money-input-max-width);
+    font-size: var(--money-input-font-size);
+    padding: 0;
+    width: 100%;
+    color: #666;
+    border: 1px solid #ccc;
+    border-left: 0;
+    line-height: 2.5;
+    border-radius: 0 7px 7px 0;
+    background: var(--white);
+    font-weight: bold;
+}
+.money-input input:focus {
+    outline: 0;
+}
+.money-input .currency {
+    font-size: var(--money-input-font-size);
+    padding: 0 5px 0 10px;
+    color: #999;
+    border: 1px solid #ccc;
+    border-right: 0;
+    line-height: 2.5;
+    border-radius: 7px 0 0 7px;
+    background: var(--white);
+}
+
+
+.app-date-picker {
+  position: relative;
+}
+.app-date-picker-drop.show {
+  display: block;
+}
+.app-date-picker-drop {
+  position: absolute;
+  background-color: var(--white);
+  width: 240px;
+  min-height: 80px;
+  left: 0;
+  padding: 6px 0;
+  -webkit-box-shadow: 2px 2px 7px -1px rgba(20,19,20,0.6);
+  -moz-box-shadow: 2px 2px 7px -1px rgba(20,19,20,0.6);
+  box-shadow: 2px 2px 7px -1px rgba(20,19,20,0.6);
+}
+.app-date-picker-drop .grid {
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+}
+
+.app-date-picker-drop button {
+  padding: 8px;
+}
+.app-date-picker-drop button:hover {
+  background-color: var(--date-picker-button-hover, #ebebeb);
+}
+

@@ -8,7 +8,9 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    children: [],
+    meta: { appHost: true }
   },
   {
     path: '/about',

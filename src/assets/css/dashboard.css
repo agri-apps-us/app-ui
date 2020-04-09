@@ -1,0 +1,573 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700&display=swap");
+
+:root {
+  --page-header-bgColor: #242e42;
+  --page-header-bgColor-hover: #1d2636;
+  --page-header-txtColor: #dde9f8;
+  --page-header-headingColor: #7889a4;
+  --page-header-width: 220px;
+  --page-content-bgColor: #f0f1f6;
+  --page-content-txtColor: #171616;
+  --page-content-blockColor: #fff;
+  --page-appbar-bgColor: #fff;
+  --white: #fff;
+  --black: #333;
+  --blue: #00b9eb;
+  --red: #ec1848;
+  --border-radius: 4px;
+  --box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.075);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a,
+button {
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  cursor: pointer;
+}
+
+input {
+  -webkit-appearance: none;
+}
+
+button,
+input {
+  border: none;
+}
+
+svg {
+  display: block;
+}
+
+html, body {
+  font: 16px/1.5 "Lato", sans-serif;
+  background: var(--page-content-bgColor);
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-2col {
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid-4col {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+/* HEADER STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.page-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  padding-top: 20px;
+  width: var(--page-header-width);
+  color: var(--page-header-txtColor);
+  background: var(--page-header-bgColor);
+}
+
+/*In case you prefer an absolutely positioned header that covers the full page height, add these styles*/
+/*body {
+  position: relative;
+}
+
+.page-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}*/
+
+/*remove these styles*/
+/*.page-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+}*/
+
+.page-header nav {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.page-header .logo {
+  display: block;
+  max-width: 120px;
+  margin: 0 15px;
+}
+
+.page-header .toggle-mob-menu {
+  display: none;
+  margin-left: 5px;
+  padding: 4px;
+  background: var(--page-content-blockColor);
+  border-radius: var(--border-radius);
+}
+
+.page-header .toggle-mob-menu svg {
+  fill: var(--black);
+  transition: transform 0.2s;
+}
+
+.app-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+}
+
+.app-menu .app-menu-spacer {
+  flex-grow: 1;
+}
+
+.page-header ul.admin-menu {
+  padding-left: 0;
+}
+
+.page-header .admin-menu li:last-child {
+  margin-top: auto;
+}
+
+.page-header .admin-menu li > * {
+  width: 100%;
+  padding: 12px 15px;
+}
+.page-header .menu-heading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.page-header .menu-heading img {
+  width: 80px;
+  margin: 0 auto;
+  display: block;
+}
+.page-header .menu-heading h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 14px;
+  margin-top: 0px;
+  margin-bottom: 0;
+  color: var(--page-header-textColor);
+}
+.page-header .menu-heading .copyright {
+  margin: 0;
+  padding: 0;
+  font-size: .85em;
+}
+
+.page-header .admin-menu svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--page-header-txtColor);
+  margin-right: 10px;
+  transition: fill 0.2s;
+}
+
+.page-header .admin-menu a,
+.page-header .admin-menu button {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.page-header .admin-menu a:hover,
+.page-header .admin-menu a:focus,
+.page-header .admin-menu button:hover,
+.page-header .admin-menu button:focus {
+  background: var(--page-header-bgColor-hover);
+  color: var(--blue);
+  outline: none;
+}
+
+.page-header .admin-menu a:hover svg,
+.page-header .admin-menu a:focus svg,
+.page-header .admin-menu button:hover svg,
+.page-header .admin-menu button:focus svg {
+  fill: var(--blue);
+}
+
+/* SUBNAV STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.subnav-header {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  justify-content: flex-start;
+}
+.subnav-header *:nth-child(2) {
+  flex-grow: 1;
+}
+.subnav-header svg {
+  display: inline-block;
+  position: relative;
+  top: 5px;
+}
+.subnav .subnav-toggle:before {
+  content: "\002B";
+  color: var(--page-header-txtColor);
+  display: inline-block;
+  margin-right: 16px;
+}
+.subnav .subnav-toggle.down:before {
+  content: "\2212";
+}
+.subnav ul.subnav-nav {
+  display: none;
+}
+.subnav ul.subnav-nav.active {
+  display: block;
+}
+
+
+/* PAGE CONTENT STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.page-content {  
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  left: var(--page-header-width);
+  width: calc(100% - var(--page-header-width));
+  min-height: 100vh;
+  padding: 0;
+  color: var(--page-content-txtColor);
+  background: var(--page-content-bgColor);  
+}
+
+.app-bar {
+  position: sticky;
+  top: 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-column-gap: 50px;
+  align-items: center;
+  background: var(--page-appbar-bgColor);
+  padding: 8px 20px;
+  margin-bottom: 10px;
+}
+
+.app-bar form {
+  position: relative;
+}
+
+.app-bar input[type="search"] {
+  width: 100%;
+  height: 50px;
+  font-size: 1.5rem;
+  padding-left: 15px;
+  background: var(--page-content-blockColor);
+  color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.app-bar ::placeholder {
+  color: var(--page-content-txtColor);
+}
+
+.app-bar .admin-profile {
+  display: flex;
+  align-items: center;
+}
+
+.app-bar .admin-profile .greeting {
+  margin: 0 10px 0 20px;
+}
+
+.app-bar .admin-profile svg {
+  width: 30px;
+  height: 30px;
+}
+
+.app-bar .admin-profile .notifications {
+  position: relative;
+}
+
+.app-bar .admin-profile .badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -10px;
+  right: -3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 10px;
+  color: var(--white);
+  background: var(--red);
+}
+
+.page-content .content {
+  flex-grow: 1;
+  padding: 0 20px;
+}
+
+/* MQ RULES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media screen and (max-width: 767px) {
+  .page-header,
+  .page-content {
+    position: static;
+    width: 100%;
+  }
+   
+  .page-header {
+    padding: 10px;
+  }
+
+  .page-header nav {
+    flex-direction: row;
+  }
+
+  .page-header .logo {
+    margin: 0;
+    height: 35px;
+  }
+
+  .page-header .toggle-mob-menu {
+    display: block;
+  }
+
+  .page-header .admin-menu {
+    position: absolute;
+    left: 98px;
+    top: 57px;
+    margin-top: 0;
+    z-index: 2;
+    border-radius: var(--border-radius);
+    background: var(--page-header-bgColor);
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.2s;
+  }
+
+  .page-header .admin-menu li:last-child.collapse,
+  .app-bar .admin-profile .greeting {
+    display: none;
+  }
+  
+  .page-content {
+    min-height: 0;
+    padding: 10px;
+  }
+
+  .page-content .grid {
+    grid-gap: 10px;
+  }
+
+  .app-bar {
+    position: absolute;
+    left: 131px;
+    top: 10px;
+    padding: 0;
+    grid-column-gap: 5px;
+    width: calc(100% - 141px);
+    border-radius: var(--border-radius);
+    background: transparent;
+    color: var(--white);
+  }
+
+  .app-bar input[type="search"] {
+    font-size: 1rem;
+    height: 35px;
+  }
+
+  .app-bar form svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .app-bar .admin-profile svg {
+    fill: var(--white);
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .page-content .grid > article {
+    grid-column: 1 / -1;
+  }
+}
+
+
+/* BODY CLASSES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.mob-menu-opened .toggle-mob-menu svg {
+  transform: rotate(180deg);
+}
+
+.mob-menu-opened .page-header .admin-menu {
+  transform: scale(1);
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .collapsed .page-header {
+    width: 40px;
+  }
+
+  .collapsed .page-header .admin-menu li > * {
+    padding: 10px;
+  }
+
+  .collapsed .page-header .logo,
+  .collapsed .page-header .admin-menu span,
+  .collapsed .page-header .admin-menu .menu-heading {
+    display: none;
+  }
+
+  .collapsed .page-header .admin-menu svg {
+    margin-right: 0;
+  }
+
+  .collapsed .page-header .admin-menu .subnav-nav svg {
+    margin-right: -18px;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    left: -8px;
+    padding: 3px;
+  }
+
+  .collapsed .page-header .collapse-btn svg {
+    transform: rotate(180deg);
+  }
+
+  .collapsed .page-content {
+    left: 40px;
+    width: calc(100% - 40px);
+  }
+}
+
+
+/* FOOTER
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.page-footer {
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 10px;
+  padding: 8px 20px;
+}
+
+.page-footer span.red {
+  color: var(--red);
+}
+
+/* SCROLLBARS 
+*/
+.scrollbar::-webkit-scrollbar-track
+{
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.8);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.8);
+	background-color: #F5F5F5;
+}
+
+.scrollbar::-webkit-scrollbar
+{
+	width: 7px;
+	background-color: #888;
+}
+
+.scrollbar::-webkit-scrollbar-thumb
+{
+	background-color: #888;
+}
+/* ICONS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.svg-icon {
+  width: 1em;
+  height: 1em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: var(-icon-fill-color, #171616);
+}
+
+.page-header .svg-icon path,
+.page-header .svg-icon polygon,
+.page-header .svg-icon rect {
+  fill: var(--page-header-txtColor);
+}
+
+.svg-icon circle {
+  stroke: var(-icon-fill-color, #171616);
+  stroke-width: 1;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* FULL SCREEN
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.full-screen {
+  position: relative;
+}
+.full-screen.open {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+  background-color: var(--fullscreen-bgColor, #fff);
+  padding: var(--fullscreen-padding, 10px);
+}
+.full-screen-toggle {
+  position: absolute;
+  top: var(--fullscreen-toggle-top, 8px);
+  right: var(--fullscreen-toggle-right, 8px);
+  cursor: pointer;
+}
+.full-screen.open .full-screen-toggle {
+  top: var(--fullscreen-open-toggle-top, 24px);
+  right: var(--fullscreen-open-toggle-right, 24px);
+}
+
+.full-screen-toggle:hover {
+  stroke: #000;
+}
+
+.full-screen.open .full-screen-toggle {
+  position: fixed;
+}

@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <router-link to="/plugin-app">Plugin APP</router-link>
-  </div>
+  <div>MAIN APP HOME</div>
 </template>
 
 <script>

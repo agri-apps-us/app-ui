@@ -1,0 +1,94 @@
+:root {
+    --button-bgColor: #ebebeb;
+    --button-textColor: #000000;
+    --button-borderColor: transparent;
+    --button-hover-bgColor: #f1f1f1;
+    --button-hover-textColor: #000000;
+    --button-hover-borderColor: #000000;
+    --button-primary: #1e87f0;
+    --button-secondary: #222222;
+    --button-danger: #f0506e;
+    --button-rounded-radius: 6px;
+}
+.button {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid var(--button-borderColor);
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: var(--button-textColor);
+  background-color: var(--button-bgColor);
+  text-align: center;
+  transition: all 0.2s;
+}
+.button:hover {
+    color: var(--button-hover-textColor);
+    background-color: var(--button-hover-bgColor);
+    border-color: var(--button-hover-borderColor);
+}
+
+.button.rounded {
+    border-radius: var(--button-rounded-radius);
+}
+
+.button.primary,
+.button.primary:hover {
+    background-color: var(--button-primary);
+    color: var(--white, #fff);
+    border-color: var(--button-primary);
+}
+.button.secondary,
+.button.secondary:hover {
+    background-color: var(--button-secondary);
+    color: var(--white, #fff);
+    border-color: var(--button-secondary);
+}
+.button.danger,
+.button.danger:hover {
+    background-color: var(--button-danger);
+    color: var(--white, #fff);
+    border-color: var(--button-danger);
+}
+
+.button.cap {
+    text-transform: capitalize;
+}
+
+.button.ucase {
+    text-transform: uppercase;
+}
+.button.transparent {
+    background-color: transparent;
+}
+.button.outlined {
+    border-color: var(--button-outlined-borderColor, #333);
+}
+.button.outlined:hover {
+    border-color: var(--button-outlined-hover-borderColor, #000);
+}
+.button.primary.outlined {
+    border-color: var(--button-primary);
+    background-color: var(--white);
+    color: var(--button-primary);
+}
+.button.secondary.outlined {
+    border-color: var(--button-secondary);
+    background-color: var(--white);
+    color: var(--button-secondary);
+}
+.button.danger.outlined {
+    border-color: var(--button-danger);
+    background-color: var(--white);
+    color: var(--button-danger);
+}
+
+@media all and (max-width:30em) {
+    .button {
+        display: block;
+        margin: 0.4em auto;
+    }
+}
