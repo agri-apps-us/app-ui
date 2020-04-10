@@ -64,6 +64,14 @@ html, body {
   cursor: pointer;
 }
 
+.flex { display: flex; }
+.flex-start { justify-content: flex-start; }
+.flex-end { justify-content: flex-end; }
+.flex-around { justify-content: around; }
+.flex-between { justify-content: space-between; }
+.flex-center { align-items: center; }
+
+
 .grid {
   display: grid;
 }
@@ -76,7 +84,45 @@ html, body {
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-/* HEADER STYLES
+.grid-gap-1 {
+  grid-column-gap: 1em;
+}
+
+@media screen and (max-width: 767px) {
+  .grid-1col-sm {
+      grid-template-columns: 1fr;
+  }
+}
+
+/* UTILITY STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.m-sm {
+  margin: 1em;
+}
+.mr-sm {
+  margin-right: 1em;
+}
+.ml-sm {
+  margin-left: 1em;
+}
+.mt-sm {
+  margin-top: 1em;
+}
+.mb-sm {
+  margin-bottom: 1em;
+}
+.cap {
+  text-transform: capitalize;
+}
+.ucase {
+  text-transform: uppercase;
+}
+
+.mr-sm {
+  margin-right: 1em;
+}
+
+/* PAGE & HEADER STYLES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .page-header {
   position: fixed;
@@ -90,28 +136,6 @@ html, body {
   color: var(--page-header-txtColor);
   background: var(--page-header-bgColor);
 }
-
-/*In case you prefer an absolutely positioned header that covers the full page height, add these styles*/
-/*body {
-  position: relative;
-}
-
-.page-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-}*/
-
-/*remove these styles*/
-/*.page-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: auto;
-}*/
 
 .page-header nav {
   display: flex;
@@ -137,6 +161,34 @@ html, body {
   fill: var(--black);
   transition: transform 0.2s;
 }
+
+.app-page {
+  margin-top: 10px;
+}
+
+.app-page-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.app-page-links a {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+.app-page-links svg {
+  width: 16px;
+  height: 16px;
+}
+.app-page-links-next svg {
+  margin-left: 8px;
+  fill: currentColor;
+}
+.app-page-links-prev svg {
+  margin-right: 8px;
+  fill: currentColor;
+}
+
 
 .app-menu {
   display: flex;
@@ -305,8 +357,8 @@ html, body {
 }
 
 .app-bar .admin-profile svg {
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
 }
 
 .app-bar .admin-profile .notifications {
@@ -318,10 +370,10 @@ html, body {
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: -10px;
-  right: -3px;
-  width: 18px;
-  height: 18px;
+  top: -3px;
+  right: -6px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   font-size: 10px;
   color: var(--white);

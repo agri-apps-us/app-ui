@@ -1,6 +1,5 @@
 <template>
   <div class="app-date-picker">
-    {{ selectedYear }}-{{ selectedMonth }}-{{ selectedDay }}
     <app-input
       type="text"
       :append="true"
@@ -156,12 +155,7 @@ export default {
         )}-${`0${this.selectedDay}`.slice(-2)}`;
       },
       set: function(modifiedValue) {
-        // Recalculate value
-        let newValue = modifiedValue;
-
-        // Note: we cannot set this.value as it is a "prop". It needs to be passed to parent component
-        // $emit the event so that parent component gets it
-        this.$emit("input", newValue);
+        this.$emit("input", modifiedValue);
       },
     },
   },
@@ -190,6 +184,11 @@ export default {
         this.mode = "year";
       }
     },
+    displayValue(newVal ) {
+      if (this.selectedYear && this.selectedMonth && this.selectedDay) {
+        this.$emit('input', newVal);
+      }
+    }
   },
 };
 </script>

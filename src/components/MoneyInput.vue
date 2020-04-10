@@ -1,9 +1,11 @@
 <template>
   <div class="money-input">
         <span class="currency">{{symbol}}</span>
-        <input id="amount" 
+        <input
+            type="text"
             @focus="isInputActive = true" 
-            @blur="isInputActive = false" name="amount" type="text" v-model="displayValue" />
+            @blur="isInputActive = false" 
+            v-model="displayValue" />
     </div>
 </template>
 

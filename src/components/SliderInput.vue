@@ -3,7 +3,7 @@
       <div class="slider-input-range">
           <input type="range" class="slider" :step="step" :min="minValue" :max="maxValue"
           :value="value" 
-            @input="$emit('input', $event.target.value)" />
+            @change="$emit('input', $event.target.value)" />
           <span class="min-value">{{minValue}}</span>
           <span class="max-value">{{maxValue}}</span>
       </div>
@@ -60,7 +60,3 @@ export default {
 
 }
 </script>
-
-<style>
-
-</style>

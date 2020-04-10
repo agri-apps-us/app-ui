@@ -54,13 +54,6 @@
     border-color: var(--button-danger);
 }
 
-.button.cap {
-    text-transform: capitalize;
-}
-
-.button.ucase {
-    text-transform: uppercase;
-}
 .button.transparent {
     background-color: transparent;
 }
