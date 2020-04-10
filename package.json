@@ -1,6 +1,6 @@
 {
   "name": "@agri-apps-us/app-ui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "./dist/agriAppsUI.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",

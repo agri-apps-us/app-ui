@@ -175,6 +175,20 @@ export default {
         this.selectedYear = this.$props.value.getFullYear();
         this.selectedMonth = this.$props.value.getMonth() + 1;
         this.selectedDay = this.$props.value.getDate();
+      } else {
+        // string
+        let parts = this.$props.value.split('-');
+        if (parts.length !== 3) {
+          parts = this.$props.value.split('/');
+        }
+
+        if (parts.length === 3) {
+          this.selectedYear = parts[0].length === 4 
+              ? parseInt(parts[0]) : parseInt(parts[2]);
+          this.selectedMonth = parseInt(parts[1]);
+          this.selectedDay = parts[0].length === 4
+              ? parseInt(parts[2]) : parseInt(parts[0]);
+        }        
       }
     }
   },
