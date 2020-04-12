@@ -32,7 +32,7 @@
         <line x1="3" y1="10" x2="21" y2="10"></line>
       </svg>
     </app-input>
-    <div v-if="show" class="app-date-picker-drop">
+    <div v-if="show" class="app-date-picker-drop" v-click-outside="onClickOutside">
       <div
         v-if="mode === 'year'"
         class="grid grid-2col"
@@ -80,6 +80,7 @@
 
 <script>
 import AppInput from "./AppInput.vue";
+import { directive as clickOutside } from 'v-click-outside';
 
 const monthData = [
   { month: 1, label: "Jan", days: 31 },
@@ -105,6 +106,9 @@ export default {
         return new Date();
       },
     },
+  },
+  directives: {
+    clickOutside
   },
   data() {
     return {
@@ -168,6 +172,10 @@ export default {
       // may have timezone caveats https://stackoverflow.com/a/29774197/1850609
       return date && date.toISOString().split("T")[0];
     },
+    onClickOutside(evt) {
+      console.log('click outside', evt);
+      this.show = false;
+    }
   },
   mounted() {
     if (this.$props.value) {
@@ -196,11 +204,6 @@ export default {
     show(newVal) {
       if (!newVal) {
         this.mode = "year";
-      }
-    },
-    displayValue(newVal ) {
-      if (this.selectedYear && this.selectedMonth && this.selectedDay) {
-        this.$emit('input', newVal);
       }
     }
   },

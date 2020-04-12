@@ -15,7 +15,7 @@
   --slider-radio-bar-hover-color: #d3d3d3;
   --slider-radion-active-color: #38833c;
   --toggle-switch-active-color: #38833c;
-  --money-input-max-width: 100px;
+  --money-input-max-width: 250px;
   --money-input-font-size: 16px;
   --white: #fff;
   --black: #333;
@@ -305,8 +305,22 @@ input:checked + .toggle-switch-slider {
 .money-input {
     display: flex;
     justify-content: flex-start;
+    position: relative;
+    max-width: var(--money-input-max-width);
 }
-.money-input input {
+.money-input a > svg {
+    width: 16px;
+    height: 16px;
+    fill: #999;
+    position: absolute;
+    right: 10px;
+    top: 12px;
+}
+.money-input a:hover > svg {
+  fill: #000;
+}
+.money-input > input:first-child,
+.money-input > input:nth-child(2) {
     max-width: var(--money-input-max-width);
     flex: 1 1 var(--money-input-max-width);
     font-size: var(--money-input-font-size);
@@ -329,9 +343,15 @@ input:checked + .toggle-switch-slider {
     color: #999;
     border: 1px solid #ccc;
     border-right: 0;
-    line-height: 2.5;
+    line-height: 2.4em;
     border-radius: 7px 0 0 7px;
     background: var(--white);
+}
+.money-input .money-input-calculator {
+  display: block;
+  position: absolute;
+  z-index: 9;
+  left: 110%;
 }
 
 
@@ -344,7 +364,7 @@ input:checked + .toggle-switch-slider {
 .app-date-picker-drop {
   position: absolute;
   background-color: var(--white);
-  width: 240px;
+  width: var(--app-date-picker-width, 240px);
   min-height: 80px;
   left: 0;
   padding: 6px 0;

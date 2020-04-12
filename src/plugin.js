@@ -6,6 +6,7 @@ import AppMenuItem from './components/AppMenuItem.vue';
 import AppPageLinks from './components/AppPageLinks.vue';
 import AppCard from './components/AppCard.vue';
 import AppCardOverview from './components/AppCardOverview.vue';
+import AppCalculatorInput from './components/AppCalculator.vue';
 
 import DateInput from './components/DateInput.vue';
 import DatePicker from './components/DatePicker.vue';
@@ -20,6 +21,7 @@ import './assets/css/dashboard.css';
 import './assets/css/inputs.css';
 import './assets/css/buttons.css';
 import './assets/css/cards.css';
+import './assets/css/calculator.css';
 
 const AppPlugin = {
     install(vue, ) {
@@ -41,6 +43,7 @@ const AppPlugin = {
         vue.component('app-fullscreen', FullScreen);
         vue.component('app-card', AppCard);
         vue.component('app-card-overview', AppCardOverview);
+        vue.component('app-calculator-input', AppCalculatorInput);
     }
 }
 

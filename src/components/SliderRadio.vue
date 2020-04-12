@@ -1,7 +1,12 @@
 <template>
   <div class="slider-radio elegant">
       <span v-for="(opt, i) in options" :key="i">
-          <input type="radio" @click="$emit('input', opt.id || opt)" name="grade" :id="opt.id || opt"><label :for="opt.id || opt">{{opt.text || opt}}</label>
+          <input type="radio" 
+            v-model="the_value"
+            :id="opt.id || opt"
+            :value="opt.id || opt"
+            :name="name">
+            <label :for="opt.id || opt">{{opt.text || opt}}</label>
      </span>
   </div>
 </template>
@@ -10,6 +15,13 @@
 
 export default {    
     props: {
+        value: {
+            type: [String, Number]
+        },
+        name: {
+            type: String,
+            default: 'group'
+        },
         options: {
             type: Array,
             default() { 
@@ -19,7 +31,12 @@ export default {
     },
     data() {
         return {
-            value: ''
+            the_value: this.value
+        }
+    },
+    watch: {
+        the_value(newVal) {
+            this.$emit('input', newVal);
         }
     },
     computed: {
@@ -27,7 +44,6 @@ export default {
             return this.options.length
         }
     }
-
 }
 </script>
 

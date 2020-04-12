@@ -1,0 +1,86 @@
+.calculator {
+    font-size: 62.5%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: var(--app-calculator-width, 180px);
+}
+.calculator .calculator-screen {
+    width: 100%;
+    font-size: 2rem;
+    height: 40px;
+    border: none;
+    background-color: #242e42;
+    color: #fff;
+    text-align: right;
+    padding: 8px 10px 8px 5px;
+  }
+  
+  .calculator button {
+    height: 22px;
+    background-color: #fff;
+    border-radius: 3px;
+    border: 1px solid #c4c4c4;
+    background-color: transparent;
+    font-size: .9rem;
+    color: #333;
+    background-image: linear-gradient(to bottom,transparent,transparent 50%,rgba(0,0,0,.04));
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), inset 0 1px 0 0 rgba(255,255,255,.45), inset 0 -1px 0 0 rgba(255,255,255,.15), 0 1px 0 0 rgba(255,255,255,.15);
+    text-shadow: 0 1px rgba(255,255,255,.4);
+  }
+  
+  .calculator button:hover {
+    background-color: #eaeaea;
+  }
+  
+  .calculator .operator {
+    color: #337cac;
+  }
+  
+  .calculator .all-clear {
+    background-color: #f0595f;
+    border-color: #b0353a;
+    color: #fff;
+  }
+  
+  .calculator .all-clear:hover {
+    background-color: #f17377;
+  }
+  
+  .calculator .equal-sign {
+    background-color: #2e86c0;
+    border-color: #337cac;
+    color: #fff;
+    height: 100%;
+    grid-area: 2 / 4 / 6 / 5;
+  }
+  
+  .calculator .equal-sign:hover {
+    background-color: #4e9ed4;
+  }
+  
+  .calculator .calculator-keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+    padding: 8px;
+  }
+  .calculator .times-operator > span {
+      position: relative;
+      top: 4px;
+  }
+  .calculator .minus-operator > span {
+      position: relative;
+      top: -1px;
+  }
+  .calculator .calculator-screen-wrap {
+      position: relative;
+  }
+  .calculator .calculator-screen-wrap .calculator-screen-history  {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    color: #fff;
+    font-size: .85em;
+  }
+ 

@@ -10,6 +10,7 @@ import plugin from './app-plugin'
 import '@/assets/css/dashboard.css'
 import '@/assets/css/inputs.css'
 import '@/assets/css/buttons.css'
+import '@/assets/css/calculator.css'
 
 Vue.config.productionTip = false
 

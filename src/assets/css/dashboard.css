@@ -326,6 +326,7 @@ html, body {
   background: var(--page-appbar-bgColor);
   padding: 8px 20px;
   margin-bottom: 10px;
+  z-index: 10;
 }
 
 .app-bar form {

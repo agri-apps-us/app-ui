@@ -6,10 +6,21 @@
             @focus="isInputActive = true" 
             @blur="isInputActive = false" 
             v-model="displayValue" />
+        <a href="javascript:void(0)" @click="showCalculator = !showCalculator">
+            <svg viewBox="0 0 1792 1792">
+                <path d="M384 1536q0-53-37.5-90.5t-90.5-37.5-90.5 37.5-37.5 90.5 37.5 90.5 90.5 37.5 90.5-37.5 37.5-90.5zm384 0q0-53-37.5-90.5t-90.5-37.5-90.5 37.5-37.5 90.5 37.5 90.5 90.5 37.5 90.5-37.5 37.5-90.5zm-384-384q0-53-37.5-90.5t-90.5-37.5-90.5 37.5-37.5 90.5 37.5 90.5 90.5 37.5 90.5-37.5 37.5-90.5zm768 384q0-53-37.5-90.5t-90.5-37.5-90.5 37.5-37.5 90.5 37.5 90.5 90.5 37.5 90.5-37.5 37.5-90.5zm-384-384q0-53-37.5-90.5t-90.5-37.5-90.5 37.5-37.5 90.5 37.5 90.5 90.5 37.5 90.5-37.5 37.5-90.5zm-384-384q0-53-37.5-90.5t-90.5-37.5-90.5 37.5-37.5 90.5 37.5 90.5 90.5 37.5 90.5-37.5 37.5-90.5zm768 384q0-53-37.5-90.5t-90.5-37.5-90.5 37.5-37.5 90.5 37.5 90.5 90.5 37.5 90.5-37.5 37.5-90.5zm-384-384q0-53-37.5-90.5t-90.5-37.5-90.5 37.5-37.5 90.5 37.5 90.5 90.5 37.5 90.5-37.5 37.5-90.5zm768 768v-384q0-52-38-90t-90-38-90 38-38 90v384q0 52 38 90t90 38 90-38 38-90zm-384-768q0-53-37.5-90.5t-90.5-37.5-90.5 37.5-37.5 90.5 37.5 90.5 90.5 37.5 90.5-37.5 37.5-90.5zm384-320v-256q0-26-19-45t-45-19h-1280q-26 0-45 19t-19 45v256q0 26 19 45t45 19h1280q26 0 45-19t19-45zm0 320q0-53-37.5-90.5t-90.5-37.5-90.5 37.5-37.5 90.5 37.5 90.5 90.5 37.5 90.5-37.5 37.5-90.5zm128-640v1536q0 52-38 90t-90 38h-1408q-52 0-90-38t-38-90v-1536q0-52 38-90t90-38h1408q52 0 90 38t38 90z"/>
+            </svg>
+        </a>
+        <div v-if="showCalculator" class="money-input-calculator" v-click-outside="onClickOutside">
+            <app-calculator @input="setValue"/>
+        </div>
     </div>
 </template>
 
 <script>
+import AppCalculator from './AppCalculator.vue';
+import vClickOutside from 'v-click-outside';
+
 export default {
     props: {
         value: {
@@ -20,9 +31,16 @@ export default {
             default: "$"
         }
     },
+    directives: {
+        clickOutside: vClickOutside.directive
+    },
+    components: {
+        AppCalculator
+    },
     data() {
         return {
-            isInputActive: false
+            isInputActive: false,
+            showCalculator: false
         }
     },
     computed: {
@@ -58,6 +76,12 @@ export default {
             if (!num) { return '' }
             num = parseInt(num, 10);
             return num.toLocaleString("en-US");
+        },
+        setValue(val) {
+            this.displayValue = `${val}`;
+        },
+        onClickOutside() {
+            this.showCalculator = false;
         }
     },
     mounted() {

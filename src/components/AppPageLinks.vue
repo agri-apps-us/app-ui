@@ -2,12 +2,12 @@
   <div class="app-page-links">
     <div v-if="next" class="app-page-links-next">
       <router-link :class="buttonClasses" :to="next.to">
-        {{ next.label }} <svg class="svg-icon"><use x-link:href="#arrowRight"></use></svg>
+        {{ next.label }} <svg class="svg-icon"><use xlink:href="#arrowRight"></use></svg>
       </router-link>
     </div>
     <div v-if="prev" class="app-page-links-prev">
       <router-link :class="buttonClasses" :to="prev.to">
-        <svg class="svg-icon"><use x-link:href="#arrowLeft"></use></svg> {{ prev.label }}
+        <svg class="svg-icon"><use xlink:href="#arrowLeft"></use></svg> {{ prev.label }}
       </router-link>
     </div>
   </div>
