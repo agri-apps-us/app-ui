@@ -121,6 +121,16 @@ html, body {
 .mr-sm {
   margin-right: 1em;
 }
+.wh-16 {
+  width: 16px;
+  height: 16px;
+}
+
+.icon-16-16 {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
 
 /* PAGE & HEADER STYLES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -366,6 +376,21 @@ html, body {
   position: relative;
 }
 
+.app-bar .admin-profile .notifications-dropdown {  
+  position: absolute;
+  display: none;
+  bottom: var(--user-drop-bottom, -48px);
+  right: var(--user-drop-right, 10px);
+  padding: var(--user-drop-padding, 8px 16px);
+  width: var(--user-drop-width, 200px);
+  background-color: var(--user-drop-bgColor, #fff);  
+  z-index: 9;
+}
+
+.app-bar .admin-profile .notifications-dropdown.open {
+  display: block;
+} 
+
 .app-bar .admin-profile .badge {
   display: flex;
   align-items: center;
@@ -602,7 +627,7 @@ input[type=number] {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 9;
+  z-index: 10;
   background-color: var(--fullscreen-bgColor, #fff);
   padding: var(--fullscreen-padding, 10px);
 }

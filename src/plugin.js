@@ -10,12 +10,15 @@ import AppCalculatorInput from './components/AppCalculator.vue';
 
 import DateInput from './components/DateInput.vue';
 import DatePicker from './components/DatePicker.vue';
+import AppInput from './components/AppInput.vue';
 import InputField from './components/InputField.vue';
 import SliderInput from './components/SliderInput.vue';
 import MoneyInput from './components/MoneyInput.vue';
 import SliderRadio from './components/SliderRadio.vue';
 import ToggleSwitch from './components/ToggleSwitch.vue';
 import FullScreen from './components/FullScreen.vue';
+
+import { directive as clickOutside } from 'v-click-outside';
 
 import './assets/css/dashboard.css';
 import './assets/css/inputs.css';
@@ -25,6 +28,9 @@ import './assets/css/calculator.css';
 
 const AppPlugin = {
     install(vue, ) {
+
+        // Directives
+        vue.directive('click-outside', clickOutside);
 
         // Register components
         vue.component('app-icons', AppIcons);
@@ -36,6 +42,7 @@ const AppPlugin = {
         vue.component('app-date-input', DateInput);
         vue.component('app-date-picker', DatePicker);
         vue.component('app-input-field', InputField);
+        vue.component('app-input', AppInput);
         vue.component('app-slider-input', SliderInput);
         vue.component('app-slider-radio', SliderRadio);
         vue.component('app-money-input', MoneyInput);

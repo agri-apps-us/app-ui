@@ -172,8 +172,7 @@ export default {
       // may have timezone caveats https://stackoverflow.com/a/29774197/1850609
       return date && date.toISOString().split("T")[0];
     },
-    onClickOutside(evt) {
-      console.log('click outside', evt);
+    onClickOutside() {
       this.show = false;
     }
   },

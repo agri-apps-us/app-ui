@@ -42,13 +42,18 @@
       <section class="app-bar">        
         <slot name="appbar">&nbsp;</slot>
         <slot name="user" v-bind-user="user">
-          <div class="admin-profile" v-if="user">
+          <div class="admin-profile" v-if="user" @mouseenter="userDrop = true">
             <span class="greeting">{{user.username}}</span>
             <div class="notifications">
               <span v-if="user.notifications" class="badge">{{user.notifications}}</span>
               <svg>
                 <use xlink:href="#users"></use>
               </svg>
+            </div>
+            <div class="notifications-dropdown" :class="{'open': userDrop}" v-click-outside="() => userDrop = false">
+              <slot name="userDrop">
+                {{user.username}}
+              </slot>
             </div>
           </div>
         </slot>
@@ -74,6 +79,7 @@
 
 <script>
 import AppIcons from "./AppIcons.vue";
+import { directive as clickOutside } from 'v-click-outside';
 export default {
   props: {
     user: {
@@ -86,12 +92,16 @@ export default {
       }
     }
   },
+  directives: {
+    clickOutside
+  },
   data() {
     return {
       expanded: false,
       mobileMenuOpened: false,
       appRoutes: {},
       currentComponent: "",
+      userDrop: false
     };
   },
   components: { AppIcons },
