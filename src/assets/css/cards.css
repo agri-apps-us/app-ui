@@ -17,6 +17,9 @@
 .app-card-body {
   padding: var(--app-card-body-padding, 2px 16px);
 }
+.app-card-rounded {
+  border-radius: var(--app-card-border-radius, 5px);
+}
 .app-card.quarter {
   width: 25%;
 }

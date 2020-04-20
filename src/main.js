@@ -11,6 +11,9 @@ import '@/assets/css/dashboard.css'
 import '@/assets/css/inputs.css'
 import '@/assets/css/buttons.css'
 import '@/assets/css/calculator.css'
+import '@/assets/css/panels.css'
+import '@/assets/css/tags.css'
+import '@/assets/css/grids.css'
 
 Vue.config.productionTip = false
 

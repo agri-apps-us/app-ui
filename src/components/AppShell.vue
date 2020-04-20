@@ -42,7 +42,7 @@
       <section class="app-bar">        
         <slot name="appbar">&nbsp;</slot>
         <slot name="user" v-bind-user="user">
-          <div class="admin-profile" v-if="user" @mouseenter="userDrop = true">
+          <div class="admin-profile" v-if="user" @click="userDrop = true">
             <span class="greeting">{{user.username}}</span>
             <div class="notifications">
               <span v-if="user.notifications" class="badge">{{user.notifications}}</span>

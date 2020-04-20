@@ -1,0 +1,27 @@
+.tag {
+    position: relative;
+    background-color: var(--tag-bgColor, #e67e22);
+    color: var(--tag-textColor, #fff);
+    padding: 2px 6px;
+    border-radius: 6px;  
+  }
+.tag.primary {
+    background-color: var(--primary, #007bff);
+    color: var(--primary-text, #fff);
+}
+.tag.secondary {
+    background-color: var(--secondary, #6c757d);
+    color: var(--secondary-text, #fff);
+}
+.tag.success {
+    background-color: var(--success, #28a745);
+    color: var(--success-text, #fff);
+}
+.tag.danger {
+    background-color: var(--success, #dc3545);
+    color: var(--danger-text, #fff);
+}
+.tag.warning {
+    background-color: var(--warning, #ffc107);
+    color: var(--warning-text, #fff);
+}

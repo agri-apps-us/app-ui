@@ -1,5 +1,5 @@
 <template>
-  <div class="slider-radio elegant">
+  <div :class="classNames">
       <span v-for="(opt, i) in options" :key="i">
           <input type="radio" 
             v-model="the_value"
@@ -27,6 +27,9 @@ export default {
             default() { 
                 return [];
             }
+        },
+        grid: {
+            type: String
         }
     },
     data() {
@@ -42,6 +45,13 @@ export default {
     computed: {
         steps() {
             return this.options.length
+        },
+        classNames() {
+            return {
+                'slider-radio': true,
+                'elegant': true,
+                [`${this.$props.grid}`]: !!this.$props.grid 
+            }
         }
     }
 }

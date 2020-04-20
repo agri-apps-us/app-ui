@@ -13,7 +13,7 @@
       v-model="displayValue"
     >
       <svg
-        @click="show = !show"
+        @click.prevent="show = !show"
         class="cursor"
         slot="append"
         xmlns="http://www.w3.org/2000/svg"
@@ -36,10 +36,10 @@
       <div
         v-if="mode === 'year'"
         class="grid grid-2col"
-        @click="mode = 'month'"
+        @click.prevent="mode = 'month'"
       >
         <button
-          @click="selectedYear = year"
+          @click.prevent="selectedYear = year"
           style="margin: 0 3px;"
           v-for="year in years"
           :key="year"
@@ -48,12 +48,12 @@
         </button>
       </div>
       <div v-if="mode === 'year'" class="grid grid-2col">
-        <button @click="yearOffset = yearOffset - 1">🡐</button>
-        <button @click="yearOffset = yearOffset + 1">🡒</button>
+        <button @click.prevent="yearOffset = yearOffset - 1">🡐</button>
+        <button @click.prevent="yearOffset = yearOffset + 1">🡒</button>
       </div>
-      <div v-if="mode === 'month'" class="grid grid-2col" @click="mode = 'day'">
+      <div v-if="mode === 'month'" class="grid grid-2col" @click.prevent="mode = 'day'">
         <button
-          @click="selectedMonth = month.month"
+          @click.prevent="selectedMonth = month.month"
           style="margin: 0 3px;"
           v-for="month in months"
           :key="month.month"
@@ -63,7 +63,7 @@
       </div>
       <div v-if="mode === 'day'" class="grid grid-4col">
         <button
-          @click="
+          @click.prevent="
             selectedDay = day;
             show = false;
           "
@@ -105,6 +105,10 @@ export default {
       default() {
         return new Date();
       },
+      offset: {
+        type: [Number],
+        default: 0
+      }
     },
   },
   directives: {
@@ -197,7 +201,12 @@ export default {
               ? parseInt(parts[2]) : parseInt(parts[0]);
         }        
       }
+      this.yearOffset = this.selectedYear - new Date().getFullYear();
+    } 
+    else {
+      this.yearOffset = this.$props.offset || 0;
     }
+    
   },
   watch: {
     show(newVal) {
